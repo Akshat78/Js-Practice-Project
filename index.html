@@ -28,6 +28,93 @@
     <title>Tasky</title>
   </head>
   <body>
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="exampleModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Add New Task</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <div class="mb-3">
+              <label for="imageurl" class="form-label">Image url</label>
+              <input
+                type="url"
+                class="form-control"
+                id="imageurl"
+                aria-describedby="Image url"
+                placeholder="http://example.com/hello.jpg"
+              />
+            </div>
+            <div class="mb-3">
+              <label for="tasktitle" class="form-label">Task Title</label>
+              <input
+                type="text"
+                class="form-control"
+                id="tasktitle"
+                aria-describedby="Task Title"
+                placeholder="Eg: API Integration"
+              />
+            </div>
+
+            <div class="mb-3">
+              <label for="tasktype" class="form-label">Task Type</label>
+              <input
+                type="text"
+                class="form-control"
+                id="tasktype"
+                aria-describedby="Task Type"
+                placeholder="Eg: work"
+              />
+            </div>
+
+            <div class="mb-3">
+              <label for="taskdescription" class="form-label"
+                >Task description</label
+              >
+              <textarea
+                rows="6"
+                class="form-control"
+                id="taskdescription"
+                aria-describedby="Task Type"
+                placeholder="Describe your task in detail"
+              ></textarea>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+            <button
+              type="button"
+              class="btn btn-primary"
+              onclick="saveChanges()"
+              data-bs-dismiss="modal"
+            >
+              Save changes
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--NAVBAR-->
     <nav class="navbar navbar-expand-md navbar-light bg-light">
       <div class="container-fluid">
         <a class="navbar-brand fw-bold text-primary" href="#">Tasky</a>
@@ -48,14 +135,19 @@
               <a class="nav-link active" aria-current="page" href="#">Home</a>
             </li>
           </ul>
-          <button type="button" class="btn btn-primary">
+          <button
+            type="button"
+            class="btn btn-primary"
+            data-bs-toggle="modal"
+            data-bs-target="#exampleModal"
+          >
             <i class="fas fa-plus"></i> Add new
           </button>
         </div>
       </div>
     </nav>
 
-    <div class="container ">
+    <div class="container">
       <div class="row justify-content-center mt-5">
         <div class="col-md-6">
           <div class="input-group mb-3 shadow">
@@ -72,35 +164,44 @@
           </div>
         </div>
       </div>
-    
+
       <!-- CARD-->
       <section>
-      <div class="row">
-        <div class="col-md-6 col-lg-4">
+        <div class="row task_container">
+          <div class="col-md-6 col-lg-4">
             <div class="card">
-                <div class="card-header d-flex justify-content-end gap-2">
-                    <button type="button" class="btn btn-outline-success"><i class="fas fa-pencil-alt"></i></button>
-                    <button type="button" class="btn btn-outline-danger"><i class="fas fa-trash"></i></button></div>
-                </div>
-                <img src="https://www.industrialempathy.com/img/remote/ZiClJf-1920w.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">Special title treatment</h5>
-                  <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
-               </div>
-               <div class="card-footer text-muted">
-                <button type="button" class="btn btn-outline-primary float-end">Open Task</button>
+              <div class="card-header d-flex justify-content-end gap-2">
+                <button type="button" class="btn btn-outline-success">
+                  <i class="fas fa-pencil-alt"></i>
+                </button>
+                <button type="button" class="btn btn-outline-danger">
+                  <i class="fas fa-trash"></i>
+                </button>
               </div>
+
+              <img
+                src="https://www.industrialempathy.com/img/remote/ZiClJf-1920w.jpg"
+                class="card-img-top"
+                alt="..."
+              />
+              <div class="card-body">
+                <h5 class="card-title">Special title treatment</h5>
+                <p class="card-text">
+                  With supporting text below as a natural lead-in to additional
+                  content.
+                </p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
               </div>
+              <div class="card-footer">
+                <button type="button" class="btn btn-outline-primary float-end">
+                  Open Task
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
-      
+      </section>
     </div>
-  </section>
-
-        
-
-
-
 
     <!-- JavaScript Bundle with Popper -->
     <script
@@ -108,5 +209,8 @@
       integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
       crossorigin="anonymous"
     ></script>
+
+    <!--OUR JavaScript File-->
+    <script src="Script.js"></script>
   </body>
 </html>
